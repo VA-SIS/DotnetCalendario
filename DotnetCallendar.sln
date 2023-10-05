@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCallendar", "DotnetCallendar\DotnetCallendar.csproj", "{70EBF26B-5EFB-41B3-A7CD-864AF7F72852}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70EBF26B-5EFB-41B3-A7CD-864AF7F72852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70EBF26B-5EFB-41B3-A7CD-864AF7F72852}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70EBF26B-5EFB-41B3-A7CD-864AF7F72852}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70EBF26B-5EFB-41B3-A7CD-864AF7F72852}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3204C56C-59CD-4166-838F-A30507B84129}
+	EndGlobalSection
+EndGlobal
