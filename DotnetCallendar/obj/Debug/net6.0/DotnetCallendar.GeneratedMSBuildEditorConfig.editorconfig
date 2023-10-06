@@ -76,6 +76,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbmRhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Lab/rodrigo/DotnetCallendar/DotnetCallendar/Views/Eventos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Lab/rodrigo/DotnetCallendar/DotnetCallendar/Views/Eventos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Lab/rodrigo/DotnetCallendar/DotnetCallendar/Views/Eventos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Lab/rodrigo/DotnetCallendar/DotnetCallendar/Views/Eventos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Lab/rodrigo/DotnetCallendar/DotnetCallendar/Views/Eventos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -86,10 +102,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Lab/rodrigo/DotnetCallendar/DotnetCallendar/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Lab/rodrigo/DotnetCallendar/DotnetCallendar/Views/Locais/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWlzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Lab/rodrigo/DotnetCallendar/DotnetCallendar/Views/Localizacoes/Create.cshtml]

@@ -5,12 +5,36 @@
       "PackagePath": "staticwebassets\\DotnetCallendar.bundle.scp.css"
     },
     {
+      "Id": "C:\\Lab\\rodrigo\\DotnetCallendar\\DotnetCallendar\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "C:\\Lab\\rodrigo\\DotnetCallendar\\DotnetCallendar\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "C:\\Lab\\rodrigo\\DotnetCallendar\\DotnetCallendar\\wwwroot\\css\\prism-okaidia.css",
+      "PackagePath": "staticwebassets\\css\\prism-okaidia.css"
+    },
+    {
       "Id": "C:\\Lab\\rodrigo\\DotnetCallendar\\DotnetCallendar\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Lab\\rodrigo\\DotnetCallendar\\DotnetCallendar\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Lab\\rodrigo\\DotnetCallendar\\DotnetCallendar\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Lab\\rodrigo\\DotnetCallendar\\DotnetCallendar\\wwwroot\\js\\main.min.js",
+      "PackagePath": "staticwebassets\\js\\main.min.js"
+    },
+    {
+      "Id": "C:\\Lab\\rodrigo\\DotnetCallendar\\DotnetCallendar\\wwwroot\\js\\prism.js",
+      "PackagePath": "staticwebassets\\js\\prism.js"
     },
     {
       "Id": "C:\\Lab\\rodrigo\\DotnetCallendar\\DotnetCallendar\\wwwroot\\js\\site.js",
