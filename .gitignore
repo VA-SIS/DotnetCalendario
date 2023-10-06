@@ -9,3 +9,6 @@
 /.vs/DotnetCallendar/v17/.suo
 /.gitignore
 /.vs/ProjectEvaluation/dotnetcallendar.projects.v7.bin
+/.vs/ProjectEvaluation/dotnetcallendar.metadata.v7.bin
+*.vsidx
+/.gitignore
