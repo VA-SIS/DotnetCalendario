@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sUkgPK7/Y9tmXE4ky5Y971ifcAbx04oBep4O3RDrYrSwhRpHmTQVoHb3daIBGE77m5ELVIFZTtKXwHju32Mf2A==",
+  "dgSpecHash": "0qCYhFrEVfIRWglHvikONFCH1nWLwOo6oxBFtGizj8KGLplBcVmrpMwg/j4e5QfdYkmB53w8/UKbDZfAu/Tg8A==",
   "success": true,
-  "projectFilePath": "C:\\Lab\\rodrigo\\DotnetCallendar\\DotnetCallendar\\DotnetCallendar.csproj",
+  "projectFilePath": "C:\\Lab\\FullCalendario\\DotnetCalendario\\DotnetCallendar\\DotnetCallendar.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\donis\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\donis\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
