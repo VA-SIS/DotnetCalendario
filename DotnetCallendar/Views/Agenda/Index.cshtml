@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "My Calendar";
+    ViewData["Title"] = "Agenda";
 }
 
 <style>
@@ -20,7 +20,7 @@
 <script>
 
       document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
+        var calendarEl = document.getElementById('Agenda');
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             events: @Html.Raw(ViewData["Events"]),
@@ -45,6 +45,6 @@
 </script>
 
 <div class="text-center">
-    <h1 class="display-4">Bem vindo ao Calendario</h1>
-    <div id='calendar'></div>
+    <h1 class="display-4">Agenda</h1>
+    <div id='Agenda'></div>
 </div>
