@@ -18,12 +18,16 @@ namespace DotNetCoreCalendar.Helpers
                 var evento = new Event()
                 {
                     id = model.Id,
+                //inicio = model.DataInicio,
+                //fim = model.DataFim,
+                //atividade = model.Descricao,
+                //descricao = model.Nome,
                     
                     dataInicio = model.DataInicio,  
                     dataFim = model.DataFim,
                     descricao = model.Descricao,    
                     //resourceId = model.Location.Id,
-                    nome = model.Nome
+                    //nome = model.Nome
                 };
                 listaEvento.Add(evento);
             }
