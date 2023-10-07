@@ -18,10 +18,40 @@
 </style>
 
 <script>
-      document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
-          var calendar = new FullCalendar.Calendar(calendarEl, {
-            locale: 'pt-br', timeZone: 'local',
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            
+            // Traduzir para pt-BR
+            // locale: 'pt-br',
+            // timeZone: 'local',
+
+            //
+
+            locale: 'pt-br',
+            timeFormat: 'HH:mm',
+            editable: true,
+            eventLimit: false,
+            displayEventTime: this.displayEventTime,
+            slotLabelFormat: 'HH:mm',
+            allDayText: '24 horas',
+            columnFormat: 'dddd',
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,listMonth'
+            },
+            buttonText: {
+                today: 'Hoje',
+                month: 'Mês',
+                week: 'Semana',
+                day: 'Hoje',
+                list: 'Lista'
+            },
+
+            // 
+            
             initialView: 'dayGridMonth',
             events: @Html.Raw(ViewData["Events"]),
             resources: @Html.Raw(ViewData["Resources"]),
@@ -32,7 +62,7 @@
             },
             eventDidMount: function (info) {
                 var tooltip = new Tooltip(info.el, {
-                    title: info.event.extendedProps.description ,
+                    title: info.event.extendedProps.description,
                     placement: 'top',
                     trigger: 'hover',
                     container: 'body'
@@ -40,7 +70,7 @@
             }
         });
         calendar.render();
-      });
+    });
 
 </script>
 
