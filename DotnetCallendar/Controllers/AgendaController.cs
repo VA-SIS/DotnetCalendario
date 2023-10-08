@@ -1,17 +1,29 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DotnetCallendar.Data;
+using DotNetCoreCalendar.Helpers;
+using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace DotnetCallendar.Controllers
-{
-    public class AgendaController : Controller
-    {
-        public IActionResult Index()
-        {
-            //var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            //ViewData["Resources"] = JSONListHelper.GetResourceListJSONString(_idal.GetLocations());
-            //ViewData["Events"] = JSONListHelper.GetEventListJSONString(_idal.GetMyEvents(userid));
+namespace DotnetCallendar.Controllers;
 
-            return View();
-        }
+public class AgendaController : Controller
+{
+
+    private readonly ApplicationDbContext _context;
+
+    public AgendaController(ApplicationDbContext context)
+    {
+        _context = context;
+    }
+
+    public IActionResult Index()
+    {
+
+        var localizacao=_context.Locais.ToList();
+        var eventos=_context.Eventos.ToList();  
+
+        ViewData["Resources"] = JSONListHelper.GetResourceListJSONString(localizacao);
+        ViewData["Events"] = JSONListHelper.GetEventListJSONString(eventos);
+
+        return View();
     }
 }

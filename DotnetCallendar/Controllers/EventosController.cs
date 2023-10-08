@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DotnetCallendar.Data;
 using DotnetCallendar.Models.Entidades;
+using DotnetCallendar.ViewModels;
+using System.Drawing;
 
 namespace DotnetCallendar.Controllers
 {
@@ -22,9 +24,9 @@ namespace DotnetCallendar.Controllers
         // GET: Eventos
         public async Task<IActionResult> Index()
         {
-              return _context.Eventos != null ? 
-                          View(await _context.Eventos.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Eventos'  is null.");
+            return _context.Eventos != null ?
+                        View(await _context.Eventos.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Eventos'  is null.");
         }
 
         // GET: Eventos/Details/5
@@ -150,14 +152,37 @@ namespace DotnetCallendar.Controllers
             {
                 _context.Eventos.Remove(evento);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EventoExists(int id)
         {
-          return (_context.Eventos?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Eventos?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        [HttpGet]
+        public IActionResult ListaEventosJSON()
+        {
+            var eventos = _context.Eventos.ToList();
+            var resultado = new List<EventoViewModel>();
+
+            foreach (var item in eventos)
+            {
+                var evento = new EventoViewModel()
+                {
+                    id = item.Id,
+                    title = item.Nome,
+                    color = "#228B22",
+                    start = item.DataInicio,
+                    end = item.DataFim,
+                   
+                   
+                };
+            }
+           
+            return new JsonResult(eventos);
     }
+}
 }

@@ -1,58 +1,60 @@
 ﻿using DotnetCallendar.Models.Entidades;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace DotnetCallendar.Helpers;
-
-public static class JSONListHelper
+namespace DotNetCoreCalendar.Helpers
 {
-    public static string GetEventListJSONString(List<Evento> events)
+    public static class JSONListHelper
     {
-        var eventlist = new List<Event>();
-        foreach (var model in events)
+        public static string GetEventListJSONString(List<Evento> events)
         {
-            var evento = new Event()
+            foreach (var model in events)
             {
-                id = model.Id,
-                inicio = model.DataInicio,
-                fim = model.DataFim,
-                atividade = model.Descricao,
-                descricao = model.Nome
-                                
-            };
-            eventlist.Add(evento);
+                var evento = new Event()
+                {
+                    id = model.Id,
+                    
+                    dataInicio = model.DataInicio,  
+                    dataFim = model.DataFim,
+                    descricao = model.Descricao,    
+                    //resourceId = model.Location.Id,
+                    //nome = model.Nome
+                };
+            }
         }
-        return System.Text.Json.JsonSerializer.Serialize(eventlist);
+
+        public static string GetResourceListJSONString(List<Localizacao> locations)
+        {
+
+            foreach (var loc in locations)
+            {
+                var resource = new Resource()
+                {
+                    id = loc.Id,
+                    nome = loc.Nome
+                };
+            }
+        }
     }
 
-    public static string GetResourceListJSONString(List<Localizacao> locations)
+    public class Event
     {
-        var resourcelist = new List<Resource>();
+        public int id { get; set; }
+        public string descricao { get; set; }
+        public DateTime dataInicio { get; set; }
+        public DateTime dataFim { get; set; }
+        public int resourceId { get; set; }
 
-        foreach (var loc in locations)
-        {
-            var resource = new Resource()
-            {
-                id = loc.Id,
-                nome = loc.Nome
-            };
-            resourcelist.Add(resource);
-        }
-        return System.Text.Json.JsonSerializer.Serialize(resourcelist);
     }
-}
 
-public class Event
-{
-    public int id { get; set; }
-    public string atividade { get; set; }
-    public DateTime inicio { get; set; }
-    public DateTime fim { get; set; }
-    public int resourceId { get; set; }
-    public string descricao { get; set; }
-}
 
-public class Resource
-{
-    public int id { get; set; }
-    public string nome { get; set; }
+    public class Resource
+    {
+        public int id { get; set; }
+        public string nome { get; set; }
 
+    }
 }

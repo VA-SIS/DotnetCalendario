@@ -18,33 +18,85 @@
 </style>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('Agenda');
+        var initialLocaleCode = 'pt-br';
+        var localeSelectorEl = document.getElementById('locale-selector');
+
+        var calendarEl = document.getElementById('agenda');
+
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            events: @Html.Raw(ViewData["Events"]),
-            resources: @Html.Raw(ViewData["Resources"]),
+            height: 700, // Altura fixa em pixels
+
+          
+            // Traduzir para pt-BR
+
+            locale: initialLocaleCode,
+            // defaultDate: '2023-31-10',
+            eventLimit: true,
+
             headerToolbar: {
-                left: 'today prev,next',
+                left: 'prev,next today',
                 center: 'title',
-                right: 'timeGridWeek,dayGridMonth,listMonth'
+                right: 'timeGridWeek, dayGridMonth, timeGridDay,year'
             },
-            eventDidMount: function (info) {
-                var tooltip = new Tooltip(info.el, {
-                    title: info.event.extendedProps.description,
-                    placement: 'top',
-                    trigger: 'hover',
-                    container: 'body'
-                });
+
+
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'agendaWeek,month, agendaDay'
+            },
+            buttonText: {
+                today: 'Hoje',
+                month: 'Mês',
+                week: 'Semana',
+                day: 'Dia',
+                list: 'Lista'
+            },
+            initialView: 'timeGridWeek',
+            //defaultView: 'agendaWeek', // Defina a visualização padrão para a semana de agenda
+            slotDuration: '00:15:00', // Define o intervalo de tempo para os slots (30 minutos)
+            businessHours: {
+                // Define as horas comerciais (08:00 às 18:00) de segunda a sexta-feira
+                dow: [1, 2, 3, 4, 5], // dias da semana (1 = segunda-feira, 2 = terça-feira, etc.)
+                start: '08:00', // hora de início das horas comerciais
+                end: '08:00' // hora de término das horas comerciais
+            },
+
+            //events:'@Url.Action("ListaEventosJSON","Eventos")',
+
+             events: @Html.Raw(ViewData["Events"]),
+             resources: @Html.Raw(ViewData["Resources"]),
+
+
+            dateClick: function (info) {
+                alert('Click' + info.dateStr);
+
+                console.log(info);
+                console.log('clicked ' + info.dateStr);
+            },
+
+            select: function (info) {
+                alert('selected ' + info.startStr + ' to ' + info.endStr);
+
+                console.log(info);
+                console.log('selected ' + info.startStr + ' to ' + info.endStr);
             }
+           
+
+            });
+
+
+
+    calendar.render();
+
+
         });
-        calendar.render();
-      });
 
 </script>
 
 <div class="text-center">
-    <h1 class="display-4">Agenda</h1>
-    <div id='Agenda'></div>
+    <h1 class="display-4">Bem vindo ao Calendario</h1>
+    <div id='calendar'></div>
 </div>
