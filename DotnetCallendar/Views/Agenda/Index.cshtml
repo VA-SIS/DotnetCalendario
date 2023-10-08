@@ -19,59 +19,71 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+        var initialLocaleCode = 'pt-br';
+        var localeSelectorEl = document.getElementById('locale-selector');
+
         var calendarEl = document.getElementById('agenda');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
             
             // Traduzir para pt-BR
             
-            locale: 'pt-br',
-            timeFormat: 'HH:mm',
-            editable: true,
-            eventLimit: false,
-            displayEventTime: this.displayEventTime,
-            slotLabelFormat: 'HH:mm',
-            allDayText: '24 horas',
-            columnFormat: 'dddd',
-            header: {
+            locale: initialLocaleCode,
+            headerToolbar: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay,listMonth'
+                right: 'dayGridMonth,timeGridWeek, timeGridDay'
             },
-            buttonText: {
-                today: 'Hoje',
-                month: 'Mês',
-                week: 'Semana',
-                day: 'Hoje',
-                list: 'Lista'
-            },
+
+           // plugins: ['interaction', 'dayGrid'],
+            //defaultDate: '2023-10-08',
+            // timeFormat: 'HH:mm',
+            //editable: true,
+            // eventLimit: true,
+            // displayEventTime: this.displayEventTime,
+            // slotLabelFormat: 'HH:mm',
+            // allDayText: '24 horas',
+            // columnFormat: 'dddd',
+
+            header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                buttonText: {
+                    today: 'Hoje',
+                    month: 'Mês',
+                    week: 'Semana',
+                    day: 'Hoje',
+                    list: 'Lista'
+                },
 
             // 
             
-            initialView: 'dayGridMonth',
+            initialView: 'timeGridDay',
+
             events: @Html.Raw(ViewData["Events"]),
             resources: @Html.Raw(ViewData["Resources"]),
-            headerToolbar: {
-                left: 'today,prev,next',
-                center: 'title',
-                right: 'timeGridWeek,dayGridMonth,listMonth,listWeek',
-            },
-            eventDidMount: function (info) {
-                var tooltip = new Tooltip(info.el, {
-                    title: info.event.extendedProps.description,
-                    placement: 'top',
-                    trigger: 'hover',
-                    container: 'body'
-                });
-            },
-            events: this.eventsCalendar
+
+
+
         });
+
+
+
         calendar.render();
+
+
     });
 
 </script>
 
 <div class="text-center">
     <h2>Agenda</h2>
+ 
+
+    @*  Calendar *@
     <div id='agenda'></div>
+
 </div>
