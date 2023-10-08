@@ -26,8 +26,9 @@
         var calendarEl = document.getElementById('agenda');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
+            height: 700, // Altura fixa em pixels
 
-            initialView: 'timeGridDay',
+          
             // Traduzir para pt-BR
 
             locale: initialLocaleCode,
@@ -53,18 +54,34 @@
                 day: 'Dia',
                 list: 'Lista'
             },
+            initialView: 'timeGridWeek',
+            //defaultView: 'agendaWeek', // Defina a visualização padrão para a semana de agenda
+            slotDuration: '00:15:00', // Define o intervalo de tempo para os slots (30 minutos)
+            businessHours: {
+                // Define as horas comerciais (08:00 às 18:00) de segunda a sexta-feira
+                dow: [1, 2, 3, 4, 5], // dias da semana (1 = segunda-feira, 2 = terça-feira, etc.)
+                start: '08:00', // hora de início das horas comerciais
+                end: '08:00' // hora de término das horas comerciais
+            },
 
+            //events:'@Url.Action("ListaEventosJSON","Eventos")',
 
-            // events: @Html.Raw(ViewData["Events"]),
-            // resources: @Html.Raw(ViewData["Resources"]),
+             events: @Html.Raw(ViewData["Events"]),
+             resources: @Html.Raw(ViewData["Resources"]),
 
 
             dateClick: function (info) {
-                alert('clicked ' + info.dateStr);
+                alert('Click' + info.dateStr);
+
+                console.log(info);
+                console.log('clicked ' + info.dateStr);
             },
 
             select: function (info) {
                 alert('selected ' + info.startStr + ' to ' + info.endStr);
+
+                console.log(info);
+                console.log('selected ' + info.startStr + ' to ' + info.endStr);
             }
            
 
