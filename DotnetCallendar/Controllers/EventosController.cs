@@ -176,7 +176,7 @@ namespace DotnetCallendar.Controllers
                     id = item.Id,
                     allday = false,
                     title = item.Nome,
-                    color = "#228B22",
+                    color = item.Cor,
                     start = item.DataInicio,
                     end = item.DataFim,
                    
