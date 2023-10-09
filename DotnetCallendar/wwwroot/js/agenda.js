@@ -42,22 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
         businessHours: {
             // Define as horas comerciais (08:00 às 18:00) de segunda a sexta-feira
             dow: [1, 2, 3, 4, 5], // dias da semana (1 = segunda-feira, 2 = terça-feira, etc.)
+
             start: '08:00', // hora de início das horas comerciais
-            end: '08:00' // hora de término das horas comerciais
+            end: '18:00' // hora de término das horas comerciais
         },
 
-        events: '/Eventos/ListaEventosJSON',
-
-        //  resources: @Html.Raw(ViewData["Resources"]),
-
-        // eventClick: function (info) {
-        //     alert('Event: ' + info.event.title);
-        //     alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-        //     alert('View: ' + info.view.type);
-
-        //     // change the border color just for fun
-        //     info.el.style.borderColor = 'red';
-        // },
+        events: '/Eventos/ListaEventosJSON',        
 
         eventClick: function (info) {
              $("#apagar_evento").attr("href", "/eventos/delete?id=" + info.event.id);
@@ -70,6 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             $('#visualizar #title').text(info.event.title);
             $('#visualizar #title').val(info.event.title);
+
+            $('#visualizar #description').text(info.event.description);
+            $('#visualizar #description').val(info.event.description);
 
             $('#visualizar #start').text(info.event.start.toLocaleString());
             $('#visualizar #start').val(info.event.start.toLocaleString());
@@ -85,6 +78,10 @@ document.addEventListener('DOMContentLoaded', function () {
         select: function (info) {
             //alert('Início do evento: ' + info.start.toLocaleString());
             console.log('Início do evento: ' + info.start.toLocaleString());
+
+          /*  $('#cadastrar #description').text(info.event.description);*/
+            $('#cadastrar #description').val(info.event.description);
+
 
              $('#cadastrar #start').val(info.start.toLocaleString());
              $('#cadastrar #end').val(info.end.toLocaleString());
