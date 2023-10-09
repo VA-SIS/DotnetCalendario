@@ -60,18 +60,24 @@ document.addEventListener('DOMContentLoaded', function () {
         // },
 
         eventClick: function (info) {
-            // $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + info.event.id);
-            // info.jsEvent.preventDefault(); // don't let the browser navigate
-            // console.log(info.event);
-            // $('#visualizar #id').text(info.event.id);
-            // $('#visualizar #id').val(info.event.id);
-            // $('#visualizar #title').text(info.event.title);
-            // $('#visualizar #title').val(info.event.title);
-            // $('#visualizar #start').text(info.event.start.toLocaleString());
-            // $('#visualizar #start').val(info.event.start.toLocaleString());
-            // $('#visualizar #end').text(info.event.end.toLocaleString());
-            // $('#visualizar #end').val(info.event.end.toLocaleString());
-            // $('#visualizar #color').val(info.event.backgroundColor);
+            /* $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + info.event.id);*/
+
+             info.jsEvent.preventDefault(); // don't let the browser navigate
+            console.log(info.event);
+
+             $('#visualizar #id').text(info.event.id);
+            $('#visualizar #id').val(info.event.id);
+
+             $('#visualizar #title').text(info.event.title);
+            $('#visualizar #title').val(info.event.title);
+
+             $('#visualizar #start').text(info.event.start.toLocaleString());
+            $('#visualizar #start').val(info.event.start.toLocaleString());
+
+             $('#visualizar #end').text(info.event.end.toLocaleString());
+            $('#visualizar #end').val(info.event.end.toLocaleString());
+
+             $('#visualizar #color').val(info.event.backgroundColor);
 
             $('#visualizar').modal('show');
         },

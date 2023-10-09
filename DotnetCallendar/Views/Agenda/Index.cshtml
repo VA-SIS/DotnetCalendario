@@ -14,7 +14,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="visualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="visualizar" tabindex="-1" aria-labelledby="agendaModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -22,8 +22,26 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+
+                    <dl class="row">
+                        <dt class="col-sm-3">ID do evento</dt>
+                        <dd class="col-sm-9" id="id"></dd>
+
+                        <dt class="col-sm-3">Título do evento</dt>
+                        <dd class="col-sm-9" id="title"></dd>
+
+                        <dt class="col-sm-3">Início do evento</dt>
+                        <dd class="col-sm-9" id="start"></dd>
+
+                        <dt class="col-sm-3">Fim do evento</dt>
+                        <dd class="col-sm-9" id="end"></dd>
+                    </dl>
+
+                    <button class="btn btn-warning btn-canc-vis">Editar</button>
+                    <a href="" id="apagar_evento" class="btn btn-danger">Apagar</a>
+
                 </div>
+
                 <div class="modal-footer">
                   
                 </div>
