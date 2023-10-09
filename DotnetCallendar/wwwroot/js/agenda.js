@@ -47,57 +47,32 @@ document.addEventListener('DOMContentLoaded', function () {
             end: '18:00' // hora de término das horas comerciais
         },
 
-        events: '/Eventos/ListaEventosJSON',        
+        events: '/Eventos/ListaEventosJSON',
 
         eventClick: function (info) {
-             $("#apagar_evento").attr("href", "/eventos/delete?id=" + info.event.id);
-
             info.jsEvent.preventDefault(); // don't let the browser navigate
-            console.log(info.event);
-
+            console.log(info.event)
             $('#visualizar #id').text(info.event.id);
-            $('#visualizar #id').val(info.event.id);
-
             $('#visualizar #title').text(info.event.title);
-            $('#visualizar #title').val(info.event.title);
-
-            $('#visualizar #description').text(info.event.description);
-            $('#visualizar #description').val(info.event.description);
-
+            $('#visualizar #description').text(info.event.extendedProps.description);
             $('#visualizar #start').text(info.event.start.toLocaleString());
-            $('#visualizar #start').val(info.event.start.toLocaleString());
-
             $('#visualizar #end').text(info.event.end.toLocaleString());
-            $('#visualizar #end').val(info.event.end.toLocaleString());
-
-            $('#visualizar #color').val(info.event.backgroundColor);
-
             $('#visualizar').modal('show');
         },
+
         selectable: true,
         select: function (info) {
             //alert('Início do evento: ' + info.start.toLocaleString());
-            console.log('Início do evento: ' + info.start.toLocaleString());
-
-          /*  $('#cadastrar #description').text(info.event.description);*/
-            $('#cadastrar #description').val(info.event.description);
-
-
-             $('#cadastrar #start').val(info.start.toLocaleString());
-             $('#cadastrar #end').val(info.end.toLocaleString());
-
+            $('#cadastrar #start').val(info.start.toLocaleString());
+            $('#cadastrar #end').val(info.end.toLocaleString());
             $('#cadastrar').modal('show');
         }
-
-
     });
-
-
 
     calendar.render();
 });
 
-//Mascara para o campo data e hora
+/*Mascara para o campo data e hora*/
 function DataHora(evento, objeto) {
     var keypress = (window.event) ? event.keyCode : evento.which;
     campo = eval(objeto);
@@ -130,13 +105,12 @@ function DataHora(evento, objeto) {
     }
 }
 
-
 $(document).ready(function () {
     $("#addevent").on("submit", function (event) {
         event.preventDefault();
         $.ajax({
             method: "POST",
-            url: "/eventos/create",
+            url: "/Eventos/create",
             data: new FormData(this),
             contentType: false,
             processData: false,
@@ -146,35 +120,6 @@ $(document).ready(function () {
                     location.reload();
                 } else {
                     $("#msg-cad").html(retorna['msg']);
-                }
-            }
-        })
-    });
-
-    $('.btn-canc-vis').on("click", function () {
-        $('.visevent').slideToggle();
-        $('.formedit').slideToggle();
-    });
-
-    $('.btn-canc-edit').on("click", function () {
-        $('.formedit').slideToggle();
-        $('.visevent').slideToggle();
-    });
-
-    $("#editevent").on("submit", function (event) {
-        event.preventDefault();
-        $.ajax({
-            method: "POST",
-            url: "/eventos/edit",
-            data: new FormData(this),
-            contentType: false,
-            processData: false,
-            success: function (retorna) {
-                if (retorna['sit']) {
-                    //$("#msg-cad").html(retorna['msg']);
-                    location.reload();
-                } else {
-                    $("#msg-edit").html(retorna['msg']);
                 }
             }
         })
