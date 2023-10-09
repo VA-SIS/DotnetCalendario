@@ -9,6 +9,7 @@ using DotnetCallendar.Data;
 using DotnetCallendar.Models.Entidades;
 using DotnetCallendar.ViewModels;
 using System.Drawing;
+using System.Text.Json;
 
 namespace DotnetCallendar.Controllers
 {
@@ -162,17 +163,18 @@ namespace DotnetCallendar.Controllers
             return (_context.Eventos?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
-        [HttpGet]
-        public IActionResult ListaEventosJSON()
+       
+        public string ListaEventosJSON()
         {
             var eventos = _context.Eventos.ToList();
-            var resultado = new List<EventoViewModel>();
+            var resultados = new List<EventoViewModel>();
 
             foreach (var item in eventos)
             {
                 var evento = new EventoViewModel()
                 {
                     id = item.Id,
+                    allday = false,
                     title = item.Nome,
                     color = "#228B22",
                     start = item.DataInicio,
@@ -180,9 +182,11 @@ namespace DotnetCallendar.Controllers
                    
                    
                 };
+
+                resultados.Add(evento);
             }
-           
-            return new JsonResult(eventos);
+
+            return JsonSerializer.Serialize(resultados); 
     }
 }
 }

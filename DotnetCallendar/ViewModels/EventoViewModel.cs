@@ -7,8 +7,10 @@ public class EventoViewModel
     public string color { get; set; }
     public DateTime start { get; set; }
     public DateTime end { get; set; }
+    public bool allday { get; set; }
+
     //public int pessoaId { get; set; }
-   
+
 }
 
 

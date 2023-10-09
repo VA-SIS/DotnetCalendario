@@ -64,10 +64,49 @@
                 end: '08:00' // hora de término das horas comerciais
             },
 
-            //events:'@Url.Action("ListaEventosJSON","Eventos")',
+           events:'@Url.Action("ListaEventosJSON","Eventos")',
 
-             events: @Html.Raw(ViewData["Events"]),
-             resources: @Html.Raw(ViewData["Resources"]),
+             // events: @Html.Raw(ViewData["Events"]),
+
+            // events: [
+            //     {
+            //         id: 1,
+            //         title: 'Descanso',
+            //         start: '2023-10-08 08:00',
+            //         allDay: true
+            //     },
+            //     {
+            //         id: 2,
+            //         title: 'event2',
+            //         start: '2023-10-09 10:00',
+            //         end: '2023-10-09 10:30',
+            //         allDay: false
+            //     },
+            //     {
+            //         id: 3,
+            //         title: 'event3',
+            //         start: '2023-10-09 13:00',
+            //         end: '2023-10-09 13:30',
+            //         allDay: false
+            //     },
+            //     {
+            //         id: 4,
+            //         title: 'event2',
+            //         start: '2023-10-09',
+            //         end: '2023-10-09',
+            //         allDay: false
+            //     },
+
+
+            //     {
+            //         id: 5,
+            //         title: 'event3',
+            //         start: '2010-01-09T12:30:00',
+            //         allDay: false // will make the time show
+            //     }
+            // ],
+
+           //  resources: @Html.Raw(ViewData["Resources"]),
 
 
             dateClick: function (info) {
