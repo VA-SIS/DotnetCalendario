@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
             end: '08:00' // hora de término das horas comerciais
         },
 
-        events: '@Url.Action("ListaEventosJSON","Eventos")',
+        events: '/Eventos/ListaEventosJSON',
 
         //  resources: @Html.Raw(ViewData["Resources"]),
 
