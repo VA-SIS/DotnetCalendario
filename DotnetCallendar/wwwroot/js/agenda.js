@@ -83,7 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         selectable: true,
         select: function (info) {
-            alert('Início do evento: ' + info.start.toLocaleString());
+            //alert('Início do evento: ' + info.start.toLocaleString());
+            console.log('Início do evento: ' + info.start.toLocaleString());
+
              $('#cadastrar #start').val(info.start.toLocaleString());
              $('#cadastrar #end').val(info.end.toLocaleString());
 
@@ -166,7 +168,7 @@ $(document).ready(function () {
         event.preventDefault();
         $.ajax({
             method: "POST",
-            url: "edit_event.php",
+            url: "/eventos/edit",
             data: new FormData(this),
             contentType: false,
             processData: false,
