@@ -59,8 +59,11 @@ namespace DotnetCallendar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,DataInicio,DataFim")] Evento evento)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,DataInicio,DataFim,Cor")] Evento evento)
         {
+
+
+
             if (ModelState.IsValid)
             {
                 _context.Add(evento);
@@ -176,6 +179,7 @@ namespace DotnetCallendar.Controllers
                     id = item.Id,
                     allday = false,
                     title = item.Nome,
+                    description= item.Descricao,
                     color = item.Cor,
                     start = item.DataInicio,
                     end = item.DataFim,
