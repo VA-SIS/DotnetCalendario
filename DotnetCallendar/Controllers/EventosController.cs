@@ -58,7 +58,7 @@ namespace DotnetCallendar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,DataInicio,DataFim")] Evento evento)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,DataInicio,DataFim,Cor")] Evento evento)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace DotnetCallendar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descricao,DataInicio,DataFim")] Evento evento)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descricao,DataInicio,DataFim,Cor")] Evento evento)
         {
             if (id != evento.Id)
             {
@@ -174,7 +174,8 @@ namespace DotnetCallendar.Controllers
                 {
                     id = item.Id,
                     title = item.Nome,
-                    color = "#228B22",
+                    description = item.Descricao,
+                    color = item.Cor,
                     start = item.DataInicio,
                     end = item.DataFim,
                    
