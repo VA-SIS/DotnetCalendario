@@ -2,31 +2,16 @@
     ViewData["Title"] = "Agenda";
 }
 
-<style>
-    .popper,
-    .tooltip {
-        position: absolute;
-        z-index: 9999;
-        background: #FFC107;
-        color: black;
-        width: 150px;
-        border-radius: 3px;
-        box-shadow: 0 0 2px rgba(0,0,0,0.5);
-        padding: 10px;
-        text-align: center;
-    }
-</style>
+<link href="~/css/agenda.css" rel="stylesheet" />
+<script src="~/js/agenda.js"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+<div class="text-center">
+    <h2>Agenda</h2>
 
-        var initialLocaleCode = 'pt-br';
-        var localeSelectorEl = document.getElementById('locale-selector');
 
-        var calendarEl = document.getElementById('agenda');
+    @*  Calendar *@
+    <div id='agenda'></div>
 
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            height: 700, // Altura fixa em pixels
 
     <!-- Modal -->
 
@@ -46,73 +31,70 @@
                             <dt class="col-sm-3">ID:</dt>
                             <dd class="col-sm-9" id="id"></dd>
 
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'timeGridWeek, dayGridMonth, timeGridDay,year'
-            },
+                        <dt class="col-sm-3">Início:</dt>
+                        <dd class="col-sm-9" id="start"></dd>
 
-
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'agendaWeek,month, agendaDay'
-            },
-            buttonText: {
-                today: 'Hoje',
-                month: 'Mês',
-                week: 'Semana',
-                day: 'Dia',
-                list: 'Lista'
-            },
-            initialView: 'timeGridWeek',
-            //defaultView: 'agendaWeek', // Defina a visualização padrão para a semana de agenda
-            slotDuration: '00:15:00', // Define o intervalo de tempo para os slots (30 minutos)
-            businessHours: {
-                // Define as horas comerciais (08:00 às 18:00) de segunda a sexta-feira
-                dow: [1, 2, 3, 4, 5], // dias da semana (1 = segunda-feira, 2 = terça-feira, etc.)
-                start: '08:00', // hora de início das horas comerciais
-                end: '08:00' // hora de término das horas comerciais
-            },
-
-            //events:'@Url.Action("ListaEventosJSON","Eventos")',
-
-             events: @Html.Raw(ViewData["Events"]),
-             resources: @Html.Raw(ViewData["Resources"]),
-
-
-            dateClick: function (info) {
-                alert('Click' + info.dateStr);
-
-                console.log(info);
-                console.log('clicked ' + info.dateStr);
-            },
-
-            select: function (info) {
-                alert('selected ' + info.startStr + ' to ' + info.endStr);
-
-                console.log(info);
-                console.log('selected ' + info.startStr + ' to ' + info.endStr);
-            }
-           
-
-            });
-
-
-
-    calendar.render();
-
-
-        });
-
-</script>
-
-<div class="text-center">
-    <h2>Agenda</h2>
-
-
-    @*  Calendar *@
-    <div id='agenda'></div>
+                        <dt class="col-sm-3">Termino:</dt>
+                        <dd class="col-sm-9" id="end"></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div />
+    <div class="modal fade" id="cadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cadastrar Evento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Título</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Título do evento">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Descrição</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="description" class="form-control" id="description" placeholder="Descrição:">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Color</label>
+                            <div class="col-sm-10">
+                                <select name="color" class="form-control" id="color">
+                                    <option value="">Selecione</option>
+                                    <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
+                                    <option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
+                                    <option style="color:#FF4500;" value="#FF4500">Laranja</option>
+                                    <option style="color:#8B4513;" value="#8B4513">Marrom</option>
+                                    <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
+                                    <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
+                                    <option style="color:#A020F0;" value="#A020F0">Roxo</option>
+                                    <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
+                                    <option style="color:#228B22;" value="#228B22">Verde</option>
+                                    <option style="color:#8B0000;" value="#8B0000">Vermelho</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Início:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="start" class="form-control" id="start" onkeypress="DataHora(event, this)">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Final:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="end" class="form-control" id="end" onkeypress="DataHora(event, this)">
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <div class="col-sm-10">

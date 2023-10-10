@@ -19,6 +19,8 @@ public class Evento
     public DateTime DataInicio { get; set; }
     [Display(Name = "Data de termino:")]
     public DateTime DataFim { get; set; }
+    [Display(Name = "Cor:")]
+    public string Cor { get; set; } = "#FFD700";
 
     [Display(Name = "Cor:")]
     public string Cor { get; set; } = "#FFD700";

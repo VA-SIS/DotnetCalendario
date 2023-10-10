@@ -12,7 +12,7 @@ public class EventoViewModel
     public bool allday { get; set; } = false;
 
     //public int pessoaId { get; set; }
-   
+
 }
 
 
